@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Contract Signed{% endblock %}
+
+{% block content %}
+  <h2>✅ Contract Processed Successfully!!!</h2>
+  <p>Your contract has been created and signing</p>
+
+  <a href="{% url 'contract_list' %}">Back to My Contracts</a>
+{% endblock %}

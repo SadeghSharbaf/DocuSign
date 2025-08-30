@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Contract Details{% endblock %}
+
+{% block content %}
+<h2>Contract Details</h2>
+
+<p><b>Recipient Email:</b> {{ object.recipient_email }}</p>
+<p><b>Envelope ID:</b> {{ object.envelope_id }}</p>
+<p><b>Created At:</b> {{ object.created_at }}</p>
+<p><b>Signed:</b> {{ object.signed }}</p>
+
+<a href="{% url 'contract_list' %}"> Back to list ⬅</a>
+
+{% if not object.signed %}
+    <form method="post" action="{% url 'contract_sign' object.pk %}">
+        {% csrf_token %}
+        <button type="submit">✍️ Sign this Contract</button>
+    </form>
+{% else %}
+    <p>✅ Already signed</p>
+{% endif %}
+
+<a href="{% url 'contract_delete' object.pk %}">🗑 Delete this contract</a>
+
+{% endblock %}

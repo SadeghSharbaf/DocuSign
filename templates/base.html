@@ -1,0 +1,19 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}DocuSign Demo{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'contract_list' %}"> contracts 📄</a> |
+        <a href="{% url 'contract_create' %}"> new contract➕</a> |
+        <a href="/logout/"> log out 🚪</a>
+    </nav>
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}My Contracts{% endblock %}
+
+{% block content %}
+<h2>My Contracts</h2>
+
+<ul>
+    {% for contract in object_list %}
+        <li>
+            Contract with {{ contract.recipient_email }}
+            → <a href="{% url 'contract_detail' contract.pk %}">Details</a>
+        </li>
+    {% empty %}
+        <li>No contracts found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
